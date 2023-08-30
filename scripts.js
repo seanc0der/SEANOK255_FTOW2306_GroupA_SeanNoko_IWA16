@@ -107,7 +107,8 @@ const {
 
 const createHtml = (athlete) => {
 	const { firstName, surname, id, races } = athlete;
-	const [{ date: recentRaceDate, time: recentRaceTime }] = races.reverse();
+	const racesCopy = JSON.parse(JSON.stringify(races));
+	const [{ date: recentRaceDate, time: recentRaceTime }] = racesCopy.reverse();
 
 	const totalRaces = races.length;
 	const date = toDateFormat(recentRaceDate);
